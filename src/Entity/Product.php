@@ -37,6 +37,10 @@ class Product
     #[Groups(['product:read', 'product:write'])]
     private ?string $supplier = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    #[Groups(['product:read', 'product:write'])]
+    private ?int $quantityReaprov = null;
+
     public function getSupplier(): ?string
     {
         return $this->supplier;
@@ -110,6 +114,18 @@ class Product
     public function setRestockDate(\DateTimeInterface $restockDate): static
     {
         $this->restockDate = $restockDate;
+
+        return $this;
+    }
+
+    public function getQuantityReaprov(): ?int
+    {
+        return $this->quantityReaprov;
+    }
+
+    public function setQuantityReaprov(int $quantityReaprov): static
+    {
+        $this->quantityReaprov = $quantityReaprov;
 
         return $this;
     }

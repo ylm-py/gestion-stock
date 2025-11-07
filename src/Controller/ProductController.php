@@ -88,6 +88,9 @@ class ProductController extends AbstractController
         if (isset($data['category'])) {
             $product->setCategory($data['category']);
         }
+        if (isset($data['quantityReaprov'])) {
+            $product->setQuantityReaprov($data['quantityReaprov']);
+        }
 
         $em->flush();
 
